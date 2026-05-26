@@ -1,0 +1,132 @@
+Saison 2 · FrontForge
+Recrée DevBenin · Full Frontend
+Challenge 100% Frontend · 14 jours pour tout livrer
+L'objectif de la phase 2 est de vous faire recréer toute la plateforme de DevBenin mais uniquement en Frontend avec des mocks et/ou localStorage. Vous ne devez PAS copier le design actuel ni la typographie. Prouvez que vous êtes développeur, vraiment.
+
+Frontend Only
+Mocks & LocalStorage
+Design 100% original
+14 jours
+Vidéos Story obligatoires
+Nouvelle phase lancée aujourd'hui. 14 jours pour livrer la plateforme complète.
+DEADLINE DIM 31 MAI 23:59
+Objectif
+Recréer toute la plateforme
+Sur devbenin.bj on observe plusieurs pages : landing, inscription/connexion, projets, articles, blogs, news, membres, vue projet, likes, quiz, réponses, leaderboard... Votre mission est de tout refaire, mais à votre sauce.
+
+Il n'y aura plus de brief après ceci. Vous devez recréer toutes les pages, autrement dit toute la plateforme DevBenin.
+Pages à recréer
+Minimum requis
+1
+Landing Page – présentation, hero, CTA
+OBLIGATOIRE
+2
+Auth – Inscription & Connexion – formulaires complets, validation
+OBLIGATOIRE
+3
+Projets – liste avec filtres, recherche, pagination
+OBLIGATOIRE
+4
+Vue Projet – détails, description, likes, commentaires mock
+OBLIGATOIRE
+5
+Articles / Blogs / News – listing + page détail
+IMPORTANT
+6
+Membres – grille avec filtre par compétences, ville
+OBLIGATOIRE
+7
+Profil Membre – vue publique
+BONUS
+8
+Quiz – liste avec filtre par difficulté/catégorie
+OBLIGATOIRE
+9
+Réponse Quiz – interface de questions, timer, score
+OBLIGATOIRE
+10
+Leaderboard Quiz – top 3 sur podium + liste des autres
+OBLIGATOIRE
+11
+Likes & Interactions – système de like fonctionnel en localStorage
+IMPORTANT
+12
+Dashboard / Profil – gestion perso (optionnel mais valorisé)
+BONUS
+Nouvelle règle 2026
+Publications Vidéo Story
+Fini les images statiques. Pour la phase 2, chaque publication est une vidéo story de 5 à 50 secondes maximum.
+
+5 à 10 sec : montre ton code dans ton IDE
+10 à 20 sec : montre le résultat dans le navigateur
+Monte comme tu veux, accélère à 1.5x ou 2x pour capter vite
+Durée totale ≤ 50 secondes
+2 posts le matin (1 Facebook + 1 LinkedIn), 2 posts le soir (idem)
+Mentionne obligatoirement @DevBenin dans chaque post
+Mentionne les autres participants pour créer l'engagement
+Partage systématiquement les liens dans le groupe WhatsApp/Telegram pour suivi
+Les vidéos comptent dans la notation. Pas de vidéo = pas de points pour la journée.
+Design
+Ne copie pas. Crée.
+Vous n'allez PAS copier le design de la plateforme ni la typographie actuelle.
+
+Choisis ta propre palette (pas le bleu DevBenin)
+Change les fonts (Inter, Manrope, Satoshi... pas la même)
+Invente ton layout, tes cards, ton système de grille
+Mobile first obligatoire – teste sur vrai téléphone
+Ajoute des micro-interactions, empty states, loaders
+Stack technique
+100% Frontend
+100% Frontend uniquement. Mocks et/ou localStorage pour simuler les données.
+
+Framework
+Libre (React, Vue, Svelte, Astro, HTML pur)
+Data
+JSON mocks + localStorage (pas de backend)
+Hosting
+Vercel, Netlify, Cloudflare Pages
+Responsive
+Mobile, tablette, desktop
+Livrables & Soumission
+Comment valider
+1
+Participer sur plateforme Explorer → The InnerBuild S02-P2
+2
+GitHub public repo avec README clair
+3
+URL déployée accessible partout
+4
+Mockups shots.so screenshots pro → Drive → eltonhounnou27@gmail.com
+5
+Frais 1000 FCFA Celtiis 01 40 66 33 49 / Moov 01 55 87 58 94 – Nom: N. En Ronald Bill Hounnou
+Planning 14 jours
+Garde le rythme
+J1-J2
+Setup + copie des textes + architecture
+J3-J5
+Landing + Auth + structure globale
+J6-J8
+Projets + Membres + filtres
+J9-J11
+Quiz + Leaderboard + interactions
+J12-J13
+Polish, responsive, animations
+J14
+Déploiement final + mockups + soumission
+Conseils
+Pour réussir
+Commence par cloner les textes de devbenin.bj, puis redesign à 100%.
+Crée d'abord tes mocks JSON (projets, membres, quiz) avant le UI.
+Pense composants réutilisables : Card, Navbar, FilterBar, Podium.
+LocalStorage pour les likes = persistance instantanée, pas d'API.
+Teste chaque page sur un vrai téléphone, pas juste en responsive desktop.
+Ship tous les jours en vidéo. La régularité > perfection.
+Leaderboard : anime le top 3, c'est ton moment "wow".
+Livre J14 même incomplet. Un projet ship > un projet parfait caché.
+Récap final
+Checklist Phase 2
+12 pages minimum recréées en frontend
+Design original (pas de copie DevBenin)
+Likes fonctionnels avec localStorage
+4 vidéos story par jour avec @DevBenin
+Repo + URL + mockups + frais soumis
