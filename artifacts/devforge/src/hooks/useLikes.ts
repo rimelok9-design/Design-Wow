@@ -2,7 +2,7 @@ import { useLocalStorage } from "./useLocalStorage";
 
 export function useLikes() {
   const [likedProjectIds, setLikedProjectIds] = useLocalStorage<string[]>(
-    "devforge_likes",
+    "devbenin_likes",
     []
   );
 

@@ -9,7 +9,7 @@ export interface User {
 }
 
 export function useAuth() {
-  const [user, setUser] = useLocalStorage<User | null>("devforge_auth", null);
+  const [user, setUser] = useLocalStorage<User | null>("devbenin_auth", null);
 
   const login = (userData: User) => {
     setUser(userData);

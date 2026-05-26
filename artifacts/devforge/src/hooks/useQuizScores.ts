@@ -9,7 +9,7 @@ export interface QuizScore {
 
 export function useQuizScores() {
   const [scores, setScores] = useLocalStorage<QuizScore[]>(
-    "devforge_quiz_scores",
+    "devbenin_quiz_scores",
     []
   );
 

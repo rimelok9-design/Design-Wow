@@ -3,13 +3,19 @@ import { mockArticles } from "@/data/articles";
 import { ArticleCard } from "@/components/ArticleCard";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileText } from "lucide-react";
+import { useApp } from "@/contexts/AppContext";
 
 export default function Articles() {
-  const [category, setCategory] = useState<string>("All");
+  const { t } = useApp();
+  const [category, setCategory] = useState("All");
 
-  const categories = ["All", "Blog", "Tutorial", "News"];
+  const categories = [
+    { key: "All", label: t("articles.all") },
+    { key: "Blog", label: t("articles.blog") },
+    { key: "Tutorial", label: t("articles.tutorial") },
+    { key: "News", label: t("articles.news") },
+  ];
 
   const filteredArticles = useMemo(() => {
     if (category === "All") return mockArticles;
@@ -18,47 +24,47 @@ export default function Articles() {
 
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-12">
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center max-w-2xl mx-auto mb-12"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm font-mono mb-4">
-            <FileText className="h-4 w-4" /> KNOWLEDGE_BASE
+      <div className="container mx-auto px-4 py-12 max-w-7xl">
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm font-medium mb-6">
+            <FileText className="h-4 w-4" /> {t("articles.label")}
           </div>
-          <h1 className="text-4xl font-bold font-mono tracking-tight mb-4 text-foreground">
-            Transmission Logs
-          </h1>
-          <p className="text-muted-foreground text-lg">
-            Tutorials, community news, and thought leadership from builders across the continent.
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">{t("articles.title")}</h1>
+          <p className="text-muted-foreground text-lg">{t("articles.subtitle")}</p>
         </motion.div>
 
+        {/* Category tabs */}
         <div className="flex justify-center mb-12">
-          <Tabs defaultValue="All" value={category} onValueChange={setCategory} className="w-full max-w-md">
-            <TabsList className="grid w-full grid-cols-4 bg-card border border-border">
-              {categories.map(cat => (
-                <TabsTrigger key={cat} value={cat} className="font-mono text-xs md:text-sm data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
-                  {cat}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </Tabs>
+          <div className="flex items-center gap-1 bg-card border border-border rounded-xl p-1">
+            {categories.map(cat => (
+              <button
+                key={cat.key}
+                onClick={() => setCategory(cat.key)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  category === cat.key
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence>
-            {filteredArticles.map((article, index) => (
-              <ArticleCard key={article.id} article={article} index={index} />
-            ))}
-          </AnimatePresence>
-        </motion.div>
-
-        {filteredArticles.length === 0 && (
-          <div className="text-center py-20 text-muted-foreground font-mono">
-            NO_LOGS_FOUND
+        {filteredArticles.length === 0 ? (
+          <div className="py-24 text-center border border-dashed border-border rounded-2xl bg-card/30">
+            <FileText className="h-14 w-14 text-muted-foreground mx-auto mb-4 opacity-40" />
+            <p className="text-muted-foreground">{t("articles.empty")}</p>
           </div>
+        ) : (
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <AnimatePresence>
+              {filteredArticles.map((article, index) => (
+                <ArticleCard key={article.id} article={article} index={index} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
         )}
       </div>
     </Layout>

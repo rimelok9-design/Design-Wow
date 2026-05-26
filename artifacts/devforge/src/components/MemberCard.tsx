@@ -1,90 +1,133 @@
 import { Member } from "@/data/members";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Trophy, FolderGit2 } from "lucide-react";
 import { SiGithub, SiX } from "react-icons/si";
 import { Linkedin } from "lucide-react";
-import { Link } from "wouter";
+import { useLocation } from "wouter";
 import { motion } from "framer-motion";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface MemberCardProps {
   member: Member;
   index: number;
 }
 
+const levelConfig = {
+  Junior: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+  Mid: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+  Senior: "bg-primary/10 text-primary border-primary/20",
+};
+
 export function MemberCard({ member, index }: MemberCardProps) {
+  const [, navigate] = useLocation();
+
+  const handleCardClick = () => navigate(`/members/${member.id}`);
+
+  const stopProp = (e: React.MouseEvent) => e.stopPropagation();
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
+      initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      transition={{ duration: 0.4, delay: index * 0.06, ease: "easeOut" }}
     >
-      <Link href={`/members/${member.id}`}>
-        <Card className="h-full flex flex-col bg-card hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,255,128,0.1)] transition-all overflow-hidden group cursor-pointer relative">
-          
-          {/* Hover Overlay with Socials */}
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 z-10">
-            <a href={member.github} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="p-3 bg-muted rounded-full hover:bg-primary/20 hover:text-primary transition-colors">
-              <SiGithub className="h-6 w-6" />
-            </a>
-            <a href={member.linkedin} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="p-3 bg-muted rounded-full hover:bg-primary/20 hover:text-primary transition-colors">
-              <Linkedin className="h-6 w-6" />
-            </a>
-            <a href={member.twitter} onClick={(e) => e.stopPropagation()} target="_blank" rel="noopener noreferrer" className="p-3 bg-muted rounded-full hover:bg-primary/20 hover:text-primary transition-colors">
-              <SiX className="h-6 w-6" />
-            </a>
-          </div>
+      <div
+        className="bg-card border border-border rounded-2xl overflow-hidden card-hover cursor-pointer group relative"
+        onClick={handleCardClick}
+        data-testid={`card-member-${member.id}`}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === "Enter" && handleCardClick()}
+      >
+        {/* Top accent line */}
+        <div className="h-1 w-full bg-gradient-to-r from-primary/60 via-accent/40 to-transparent" />
 
-          <CardHeader className="p-6 pb-4 text-center items-center relative z-0">
-            <div className="absolute top-4 right-4">
-              <Badge variant="outline" className="font-mono text-[10px] uppercase tracking-wider">
-                {member.level}
-              </Badge>
-            </div>
-            
+        {/* Social buttons — use stopPropagation so click on them doesn't navigate */}
+        <div className="absolute top-4 right-4 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-all duration-200 z-20 translate-y-2 group-hover:translate-y-0">
+          <a
+            href={member.github}
+            onClick={stopProp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-1.5 bg-card/80 backdrop-blur rounded-lg border border-border hover:border-primary/40 hover:text-primary transition-colors"
+            aria-label="GitHub"
+          >
+            <SiGithub className="h-3.5 w-3.5" />
+          </a>
+          <a
+            href={member.linkedin}
+            onClick={stopProp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-1.5 bg-card/80 backdrop-blur rounded-lg border border-border hover:border-primary/40 hover:text-primary transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="h-3.5 w-3.5" />
+          </a>
+          <a
+            href={member.twitter}
+            onClick={stopProp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-1.5 bg-card/80 backdrop-blur rounded-lg border border-border hover:border-primary/40 hover:text-primary transition-colors"
+            aria-label="Twitter / X"
+          >
+            <SiX className="h-3.5 w-3.5" />
+          </a>
+        </div>
+
+        <div className="p-6">
+          {/* Header */}
+          <div className="flex items-center gap-4 mb-4">
             <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <Avatar className="h-24 w-24 border-2 border-border group-hover:border-primary transition-colors relative z-10">
+              <div className="absolute inset-0 rounded-full bg-primary/10 blur-lg scale-125 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Avatar className="h-16 w-16 border-2 border-border group-hover:border-primary/50 transition-colors relative z-10">
                 <AvatarImage src={member.avatar} />
-                <AvatarFallback className="text-xl font-mono">{member.name.substring(0, 2).toUpperCase()}</AvatarFallback>
+                <AvatarFallback className="text-lg font-bold">{member.name.substring(0, 2).toUpperCase()}</AvatarFallback>
               </Avatar>
             </div>
-            
-            <h3 className="font-bold text-xl mt-4 font-mono">{member.name}</h3>
-            <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1 font-mono">
-              <MapPin className="h-3 w-3" /> {member.city}
-            </p>
-          </CardHeader>
-          
-          <CardContent className="p-6 py-2 flex-grow text-center z-0 relative">
-            <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{member.bio}</p>
-            <div className="flex flex-wrap justify-center gap-1.5">
-              {member.skills.slice(0, 4).map((skill) => (
-                <Badge key={skill} variant="secondary" className="bg-muted text-xs font-mono">
-                  {skill}
-                </Badge>
-              ))}
-              {member.skills.length > 4 && (
-                <Badge variant="secondary" className="bg-muted text-xs font-mono">
-                  +{member.skills.length - 4}
-                </Badge>
-              )}
+            <div className="flex-1 min-w-0">
+              <h3 className="font-bold text-base leading-tight truncate">{member.name}</h3>
+              <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
+                <MapPin className="h-3 w-3 flex-shrink-0" /> {member.city}
+              </p>
+              <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full border mt-1.5 ${levelConfig[member.level]}`}>
+                {member.level}
+              </span>
             </div>
-          </CardContent>
-          
-          <CardFooter className="p-4 border-t border-border/50 flex justify-between bg-muted/20 z-0 relative">
-            <div className="flex flex-col items-center flex-1 border-r border-border/50">
-              <span className="text-xs text-muted-foreground font-mono mb-1 flex items-center gap-1"><FolderGit2 className="h-3 w-3" /> Projects</span>
-              <span className="font-bold font-mono">{member.projectCount}</span>
+          </div>
+
+          <p className="text-sm text-muted-foreground mb-4 line-clamp-2 leading-relaxed">{member.bio}</p>
+
+          {/* Skills */}
+          <div className="flex flex-wrap gap-1.5 mb-5">
+            {member.skills.slice(0, 4).map((skill) => (
+              <Badge key={skill} variant="secondary" className="text-xs bg-muted/40 text-muted-foreground border-border/60">
+                {skill}
+              </Badge>
+            ))}
+            {member.skills.length > 4 && (
+              <Badge variant="secondary" className="text-xs bg-muted/40">+{member.skills.length - 4}</Badge>
+            )}
+          </div>
+
+          {/* Stats */}
+          <div className="flex border border-border rounded-xl overflow-hidden">
+            <div className="flex-1 py-2.5 px-3 flex flex-col items-center border-r border-border">
+              <span className="text-[10px] text-muted-foreground mb-1 flex items-center gap-1 uppercase tracking-wide">
+                <FolderGit2 className="h-3 w-3" /> Projets
+              </span>
+              <span className="font-bold text-sm">{member.projectCount}</span>
             </div>
-            <div className="flex flex-col items-center flex-1">
-              <span className="text-xs text-muted-foreground font-mono mb-1 flex items-center gap-1"><Trophy className="h-3 w-3" /> Score</span>
-              <span className="font-bold font-mono text-primary">{member.quizScore}</span>
+            <div className="flex-1 py-2.5 px-3 flex flex-col items-center">
+              <span className="text-[10px] text-muted-foreground mb-1 flex items-center gap-1 uppercase tracking-wide">
+                <Trophy className="h-3 w-3" /> Score
+              </span>
+              <span className="font-bold text-sm text-primary">{member.quizScore}</span>
             </div>
-          </CardFooter>
-        </Card>
-      </Link>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 }
