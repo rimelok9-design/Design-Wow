@@ -13,7 +13,7 @@ interface AppContextType {
 }
 
 const AppContext = createContext<AppContextType>({
-  theme: "dark",
+  theme: "light",
   lang: "fr",
   toggleTheme: () => {},
   setLang: () => {},
@@ -22,8 +22,8 @@ const AppContext = createContext<AppContextType>({
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
-    try { return (localStorage.getItem("db_theme") as Theme) ?? "dark"; }
-    catch { return "dark"; }
+    try { return (localStorage.getItem("db_theme") as Theme) ?? "light"; }
+    catch { return "light"; }
   });
 
   const [lang, setLangState] = useState<Lang>(() => {
@@ -33,8 +33,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.remove("dark", "light");
-    root.classList.add(theme);
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
     try { localStorage.setItem("db_theme", theme); } catch {}
   }, [theme]);
 

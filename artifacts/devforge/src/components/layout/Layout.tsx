@@ -2,16 +2,7 @@ import { Navbar } from "./Navbar";
 import { Link } from "wouter";
 import { useApp } from "@/contexts/AppContext";
 import { Github, Twitter } from "lucide-react";
-
-function BeninFlagLogo() {
-  return (
-    <svg viewBox="0 0 30 20" width="30" height="20" className="rounded-sm overflow-hidden flex-shrink-0" aria-hidden="true">
-      <rect x="0" y="0" width="10" height="20" fill="#008751" />
-      <rect x="10" y="0" width="20" height="10" fill="#FCD116" />
-      <rect x="10" y="10" width="20" height="10" fill="#E8112D" />
-    </svg>
-  );
-}
+import { LogoIcon } from "@/components/LogoIcon";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { t } = useApp();
@@ -35,15 +26,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen flex flex-col bg-background text-foreground font-sans">
       <Navbar />
       <main className="flex-1 w-full">{children}</main>
-      <footer className="border-t border-border bg-card/20 mt-16">
-        <div className="container mx-auto px-4 max-w-7xl py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer className="border-t border-border bg-muted/30 mt-20">
+        <div className="container mx-auto px-4 max-w-7xl py-14">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
             <div className="md:col-span-2">
               <div className="flex items-center gap-2.5 mb-4">
-                <BeninFlagLogo />
-                <span className="font-bold text-xl tracking-tight">
-                  Dev<span className="text-primary">Benin</span>
-                </span>
+                <LogoIcon size={34} />
+                <span className="font-black text-xl tracking-tight logo-gradient">DevBenin</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
                 {t("footer.tagline")}
@@ -63,7 +52,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             {Object.entries(footerLinks).map(([section, links]) => (
               <div key={section}>
                 <h4 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wider">{section}</h4>
-                <ul className="space-y-2">
+                <ul className="space-y-2.5">
                   {links.map((link) => (
                     <li key={link.href}>
                       <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors text-sm">
@@ -80,12 +69,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <p className="text-muted-foreground text-sm">
               © {new Date().getFullYear()} DevBenin. {t("footer.copyright")}
             </p>
-            <p className="text-muted-foreground text-sm flex items-center gap-1.5">
-              {t("footer.built")} <span className="text-primary font-semibold">{t("footer.benin")}</span>
+            <p className="text-muted-foreground text-sm flex items-center gap-2">
+              {t("footer.built")}
+              <span className="font-semibold text-foreground">{t("footer.benin")}</span>
               <span className="inline-flex gap-0.5 ml-1">
-                <span className="h-3 w-1.5 rounded-sm bg-[#008751]" />
-                <span className="h-3 w-1.5 rounded-sm bg-[#FCD116]" />
-                <span className="h-3 w-1.5 rounded-sm bg-[#E8112D]" />
+                <span className="h-3 w-2 rounded-sm bg-[#008751]" />
+                <span className="h-3 w-2 rounded-sm bg-[#FCD116]" />
+                <span className="h-3 w-2 rounded-sm bg-[#E8112D]" />
               </span>
             </p>
           </div>

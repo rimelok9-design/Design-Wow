@@ -18,7 +18,7 @@ export const mockMembers: Member[] = [
   {
     id: "m1",
     name: "Kofi Adjovi",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=KofiAdjovi",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Ingénieur full-stack passionné par la fintech et les systèmes distribués. Architecte de BenPay.",
     city: "Cotonou",
     skills: ["React", "Node.js", "PostgreSQL", "Go"],
@@ -33,7 +33,7 @@ export const mockMembers: Member[] = [
   {
     id: "m2",
     name: "Rosine Dossou",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=RosineDossou",
+    avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Développeuse frontend spécialisée en accessibilité et expériences web performantes.",
     city: "Porto-Novo",
     skills: ["Next.js", "TypeScript", "Tailwind CSS", "GraphQL"],
@@ -48,7 +48,7 @@ export const mockMembers: Member[] = [
   {
     id: "m3",
     name: "Marcel Houngbédji",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=MarcelHoungbedji",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Chercheur en IA et NLP, construction de modèles pour les langues africaines. PhD en cours.",
     city: "Cotonou",
     skills: ["Python", "PyTorch", "FastAPI", "Docker"],
@@ -63,7 +63,7 @@ export const mockMembers: Member[] = [
   {
     id: "m4",
     name: "Sylvie Kpêdékpo",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=SylvieKpedekpo",
+    avatar: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Développeuse mobile passionnée par les applications offline-first pour les zones rurales du Bénin.",
     city: "Parakou",
     skills: ["React Native", "Firebase", "Redux", "Flutter"],
@@ -78,7 +78,7 @@ export const mockMembers: Member[] = [
   {
     id: "m5",
     name: "Théodore Gbèdji",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=TheodoreGbedji",
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Ingénieur backend spécialisé dans les microservices haute disponibilité et la santé numérique.",
     city: "Cotonou",
     skills: ["Go", "Kubernetes", "Redis", "gRPC"],
@@ -93,7 +93,7 @@ export const mockMembers: Member[] = [
   {
     id: "m6",
     name: "Arnaud Loko",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=ArnaudLoko",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Développeur IoT construisant des solutions intelligentes pour l'agriculture et la logistique urbaine.",
     city: "Abomey",
     skills: ["C++", "Python", "MQTT", "Vue"],
@@ -108,7 +108,7 @@ export const mockMembers: Member[] = [
   {
     id: "m7",
     name: "Christelle Akpo",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=ChristelleAkpo",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Développeuse Ruby on Rails qui adore le code élégant et les tests bien écrits.",
     city: "Porto-Novo",
     skills: ["Ruby", "Rails", "PostgreSQL", "React"],
@@ -123,7 +123,7 @@ export const mockMembers: Member[] = [
   {
     id: "m8",
     name: "Hyacinthe Vodounon",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=HyacintheVodounon",
+    avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Data scientist transformant les données brutes en insights actionnables pour les entreprises béninoises.",
     city: "Cotonou",
     skills: ["Python", "Pandas", "Scikit-Learn", "SQL"],
@@ -138,7 +138,7 @@ export const mockMembers: Member[] = [
   {
     id: "m9",
     name: "Brice Aïnadou",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=BriceAinadou",
+    avatar: "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Ingénieur DevOps maintenant les systèmes en ligne 24h/7j pour les startups béninoises.",
     city: "Cotonou",
     skills: ["AWS", "Terraform", "CI/CD", "Bash"],
@@ -153,7 +153,7 @@ export const mockMembers: Member[] = [
   {
     id: "m10",
     name: "Fabrice Zinsou",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=FabriceZinsou",
+    avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Designer-développeur UI/UX, pont entre le design et le code. Créateur du DevBenin Dashboard.",
     city: "Cotonou",
     skills: ["Figma", "React", "CSS", "Framer Motion"],
@@ -168,7 +168,7 @@ export const mockMembers: Member[] = [
   {
     id: "m11",
     name: "Délali Azondekon",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=DelaliAzondekon",
+    avatar: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Développeur web junior enthousiaste, passionné par le patrimoine culturel numérique béninois.",
     city: "Ouidah",
     skills: ["HTML", "CSS", "JavaScript", "Three.js"],
@@ -183,7 +183,7 @@ export const mockMembers: Member[] = [
   {
     id: "m12",
     name: "Joël Hounkpatin",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=JoelHounkpatin",
+    avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Développeur Web3 explorant la DeFi et les smart contracts pour l'écosystème FCFA.",
     city: "Cotonou",
     skills: ["Solidity", "React", "Web3.js", "Node.js"],
@@ -198,7 +198,7 @@ export const mockMembers: Member[] = [
   {
     id: "m13",
     name: "Aïssatou Sègnon",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=AissatouSegnon",
+    avatar: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Ingénieure en sécurité informatique, spécialisée dans la protection des systèmes financiers africains.",
     city: "Cotonou",
     skills: ["Security", "Python", "AWS", "Pen Testing"],
@@ -213,7 +213,7 @@ export const mockMembers: Member[] = [
   {
     id: "m14",
     name: "Gabin Tokponnon",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=GabinTokponnon",
+    avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Programmeur système écrivant du code haute performance en Rust et C pour des solutions embarquées.",
     city: "Natitingou",
     skills: ["Rust", "C", "Linux", "WASM"],
@@ -228,7 +228,7 @@ export const mockMembers: Member[] = [
   {
     id: "m15",
     name: "Prudence Agossou",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=PrudenceAgossou",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face&auto=format",
     bio: "Récente diplômée en informatique, construisant son portfolio full-stack avec passion.",
     city: "Lokossa",
     skills: ["React", "Express", "MongoDB", "Node.js"],
